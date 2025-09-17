@@ -1,0 +1,54 @@
+!请在局内查看各数值
+!百分比类数据需写作浮点数
+!为了简化计算和使用，小生命、小攻击和小防御的贡献将会被计入大生命、大攻击和大防御，程序
+&common
+calculation = "superbreak" !计算类型 可选"normal"|"break"|"superbreak" 附加伤害也算在normal类，dot伤害因与属性挂钩，算法各有区别，先咕咕咕
+dmg_type = "fire" !伤害属性 可选"physical"|"fire"|"ice"|"lightning"|"wind"|"quantum"|"imaginary"
+/
+
+&chara
+!----基本数值区----
+chara_level =  80 !我方等级
+white_hp = 0 !生命值白字
+blue_hp = 0 !生命值蓝字
+white_atk = 0 !攻击力白字
+blue_atk = 0 !攻击力蓝字
+white_def = 0 !防御力白字
+blue_def = 0 !防御力蓝字
+special = 0 !特殊数值，例如刃的血池
+!----倍率区----
+hp_mag = 0 !生命值倍率
+atk_mag = 0 !攻击力倍率
+def_mag =  0 !防御力倍率
+special_mag = 0 !特殊数值倍率
+!----双暴区----
+crit_rate = 0 !暴击率，当且仅当calculation="normal"时生效
+crit_dmg = 0 !暴击伤害
+!----增伤区----
+universal_boost = 0 !在局内面板上直接读到的通用增伤数值，包括属性增伤和后面加的全局增伤，对击破和超击破来说此项不生效
+special_boost = 0 !由天赋、星魂、光锥、遗器或队伍buff给的特定类型增伤，不出现在我方局内面板上，但可以在我方buff列表中读取，举例：阿那克萨戈拉斯的质性揭露效果、各类击破增伤,需要注意的是击破增伤对超击破也生效
+!----抗性区----
+res_ignore = 0 !抗性穿透百分比
+!----防御区----
+def_ignore = 0.25 !无视防御百分比
+!----击破区----
+break_effect = 3.43 !击破特攻
+toughness_reduce = 22.5 !削韧量
+break_mag = 0 !击破倍率
+superbreak_mag = 0.35 !超击破倍率
+/
+
+&enermy
+!----基本数值区----
+enermy_level = 82 !敌方等级
+enermy_toughness = 0 !敌方韧条
+!----易伤区----
+dmg_receive_universal_boost = 0 !在敌方buff列表中能读到的通用易伤数值，比如椒师傅给的35%通用易伤等
+dmg_receive_special_boost = 0.44 !在敌方buff列表中能读到的特定类型易伤数值，比如椒师傅给的15%终结技易伤等
+!----防御区----
+def_reduce = 0 !防御降低百分比
+!----抗性区----
+enermy_res = 0.2 !敌方对于伤害属性的抗性，在 https://wiki.biligame.com/sr/%E6%95%8C%E4%BA%BA%E7%AD%9B%E9%80%89 可以查到
+!----减伤区----
+dmg_reduce = 0.6 !未击破时自带10%减伤，部分Boss因机制更高，多个减伤为乘算，比如两个0.5减伤等于0.75减伤
+/
