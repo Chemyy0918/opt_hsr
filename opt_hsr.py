@@ -61,54 +61,54 @@ calculation = common['calculation']
 dmg_type = common['dmg_type']
 ##----角色区----
 ###----基本数值区----
-chara_level = float(chara['chara_level'])
-white_hp = float(chara['white_hp'])+1e-8
-blue_hp = float(chara['blue_hp'])
+chara_level = float(chara['chara_level'] or 0)
+white_hp = float(chara['white_hp'] or 0)+1e-8
+blue_hp = float(chara['blue_hp'] or 0)
 hp_percent = blue_hp / white_hp
-white_atk = float(chara['white_atk'])+1e-8
-blue_atk = float(chara['blue_atk'])
+white_atk = float(chara['white_atk'] or 0)+1e-8
+blue_atk = float(chara['blue_atk'] or 0)
 atk_percent = blue_atk / white_atk
-white_def = float(chara['white_def'])+1e-8
-blue_def = float(chara['blue_def'])
+white_def = float(chara['white_def'] or 0)+1e-8
+blue_def = float(chara['blue_def'] or 0)
 def_percent = blue_def / white_def
-special = float(chara['special'])
+special = float(chara['special'] or 0)
 ###----倍率区----
-hp_mag = float(chara['hp_mag'])
-atk_mag = float(chara['atk_mag'])
-def_mag = float(chara['def_mag'])
-special_mag = float(chara['special_mag'])
+hp_mag = float(chara['hp_mag'] or 0)
+atk_mag = float(chara['atk_mag'] or 0)
+def_mag = float(chara['def_mag'] or 0)
+special_mag = float(chara['special_mag'] or 0)
 ###----双暴区----
-crit_rate = float(chara['crit_rate'])
-crit_dmg = float(chara['crit_dmg'])
+crit_rate = float(chara['crit_rate'] or 0)
+crit_dmg = float(chara['crit_dmg'] or 0)
 ###----增伤区----
-universal_boost = float(chara['universal_boost'])
+universal_boost = float(chara['universal_boost'] or 0)
 if calculation == 'break' or calculation == 'superbreak':
     universal_boost=0.0
-special_boost = float(chara['special_boost'])
+special_boost = float(chara['special_boost'] or 0)
 boost = universal_boost + special_boost
 ###----抗性区----
-res_ignore = float(chara['res_ignore'])
+res_ignore = float(chara['res_ignore'] or 0)
 ###----防御区----
-def_ignore = float(chara['def_ignore'])
+def_ignore = float(chara['def_ignore'] or 0)
 ###----击破区----
-break_effect = float(chara['break_effect'])
-toughness_reduce = float(chara['toughness_reduce'])
-break_mag = float(chara['break_mag'])
-superbreak_mag = float(chara['superbreak_mag'])
+break_effect = float(chara['break_effect'] or 0)
+toughness_reduce = float(chara['toughness_reduce'] or 0)
+break_mag = float(chara['break_mag'] or 0)
+superbreak_mag = float(chara['superbreak_mag'] or 0)
 ##----敌人区----
 ###----基本数值区----
-enermy_level = float(enermy['enermy_level'])
-enermy_toughness = float(enermy['enermy_toughness'])
+enermy_level = float(enermy['enermy_level'] or 0)
+enermy_toughness = float(enermy['enermy_toughness'] or 0)
 ###----易伤区----
-dmg_receive_universal_boost = float(enermy['dmg_receive_universal_boost'])
-dmg_receive_special_boost = float(enermy['dmg_receive_special_boost'])
+dmg_receive_universal_boost = float(enermy['dmg_receive_universal_boost'] or 0)
+dmg_receive_special_boost = float(enermy['dmg_receive_special_boost'] or 0)
 receive_boost = dmg_receive_universal_boost + dmg_receive_special_boost
 ###----防御区----
-def_reduce = float(enermy['def_reduce'])
+def_reduce = float(enermy['def_reduce'] or 0)
 ###----抗性区----
-enermy_res = float(enermy['enermy_res'])
+enermy_res = float(enermy['enermy_res'] or 0)
 ###----减伤区----
-dmg_reduce = float(enermy['dmg_reduce'])
+dmg_reduce = float(enermy['dmg_reduce'] or 0)
 #----处理区----
 if calculation=="normal":
     dmg = normal_dmg(chara_level,white_hp,hp_percent,hp_mag,white_atk,atk_percent,atk_mag,white_def,def_percent,def_mag,special,special_mag,crit_rate,crit_dmg,boost,res_ignore,def_ignore,enermy_level,enermy_res,receive_boost,def_reduce,dmg_reduce)
